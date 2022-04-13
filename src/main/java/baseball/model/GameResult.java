@@ -37,4 +37,8 @@ public class GameResult {
     private boolean isNothing() {
         return strike == 0 && ball == 0;
     }
+
+    public boolean isPlayerWin() {
+        return strike == 3;
+    }
 }

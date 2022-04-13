@@ -75,4 +75,18 @@ class GameResultTest {
         //then
         assertThat(resultStr).isEqualTo("1볼 ");
     }
+
+    @DisplayName("게임 결과 문자열 사용자가 이겼는지 확인")
+    @Test
+    void isPlayerWinTest() throws Exception {
+
+        //given
+        GameResult gameResult = new GameResult(3, 0);
+
+        //when
+        boolean isPlayerWin = gameResult.isPlayerWin();
+
+        //then
+        assertThat(isPlayerWin).isTrue();
+    }
 }
