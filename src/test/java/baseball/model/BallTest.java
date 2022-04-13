@@ -106,34 +106,4 @@ class BallTest {
         assertThat(result).isEqualTo(index);
     }
 
-    @DisplayName("Ball 숫자 비교 테스트")
-    @Test
-    void isSameNumberTest() throws Exception {
-
-        //given
-        Ball source = Ball.of(1, 0);
-        Ball target = Ball.of(1, 1);
-
-        //when
-        boolean result = source.isSameNumber(target);
-
-        //then
-        assertThat(result).isTrue();
-    }
-
-    @DisplayName("Ball 자리수 비교 테스트")
-    @Test
-    void isSameIndexTest() throws Exception {
-
-        //given
-        Ball source = Ball.of(1, 0);
-        Ball target = Ball.of(2, 0);
-
-        //when
-        boolean result = source.isSameIndex(target);
-
-        //then
-        assertThat(result).isTrue();
-    }
-
 }

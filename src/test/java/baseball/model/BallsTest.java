@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+import java.util.List;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -84,6 +85,37 @@ class BallsTest {
                     }
                 }
         );
+    }
+
+    @DisplayName("Balls 객체간 비교테스트(3스트라이크)")
+    @Test
+    void compareBallStrikeTest() throws Exception {
+
+        //given
+        Ball[] ballArray = new Ball[3];
+        for (int i = 0; i < ballArray.length; i++) {
+            ballArray[i] = Ball.of(i + 1, i);
+        }
+        Balls source = Balls.from(ballArray);
+        Balls target = Balls.from(ballArray);
+
+        //when
+        List<BallCount> ballCounts = source.compareBalls(target);
+
+        int result = 0;
+        for (BallCount ballCount : ballCounts) {
+            result += isStrike(ballCount);
+        }
+
+        //then
+        assertThat(result).isEqualTo(3);
+    }
+
+    private int isStrike(BallCount ballCount) {
+        if (ballCount == BallCount.STRIKE) {
+            return 1;
+        }
+        return 0;
     }
 
 }
