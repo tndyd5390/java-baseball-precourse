@@ -45,12 +45,22 @@ public class Ball {
         }
     }
 
-    public boolean isSameNumber(Ball ball) {
+    private boolean isSameNumber(Ball ball) {
         return this.number == ball.getNumber();
     }
 
-    public boolean isSameIndex(Ball ball) {
+    private boolean isSameIndex(Ball ball) {
         return this.index == ball.getIndex();
+    }
+
+    public BallCount compareBall(Ball ball) {
+        if (isSameIndex(ball) && isSameNumber(ball)) {
+            return BallCount.STRIKE;
+        }
+        if (isSameNumber(ball) && !(isSameIndex(ball))) {
+            return BallCount.BALL;
+        }
+        return BallCount.NOTHING;
     }
 
 }

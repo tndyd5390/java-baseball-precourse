@@ -10,6 +10,7 @@ public class Balls {
     private static final int BAll_SIZE = 3;
 
     private Ball[] balls;
+    private List<BallCount> ballCounts;
 
     private Balls() {
 
@@ -75,5 +76,18 @@ public class Balls {
         return this.balls;
     }
 
+    public List<BallCount> compareBalls(Balls targetBalls) {
+        this.ballCounts = new ArrayList<>();
+        for (Ball source : balls) {
+            compareEachBalls(source, targetBalls);
+        }
+        return this.ballCounts;
+    }
+
+    private void compareEachBalls(Ball source, Balls targetBalls) {
+        for (Ball target : targetBalls.getBalls()) {
+            ballCounts.add(source.compareBall(target));
+        }
+    }
 
 }
