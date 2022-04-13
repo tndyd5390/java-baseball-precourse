@@ -111,6 +111,26 @@ class BallsTest {
         assertThat(result).isEqualTo(3);
     }
 
+    @DisplayName("문자열로 인스턴스 생성 테스트")
+    @Test
+    void fromPlayerInputTest() throws Exception {
+
+        //given //when
+        Balls balls = Balls.from("123");
+
+        //then
+        assertThat(balls).isInstanceOf(Balls.class);
+    }
+
+    @DisplayName("문자열로 인스턴스 생성 유효성 검증 테스트")
+    @ParameterizedTest
+    @ValueSource(strings = {"", "12", "000", "120"})
+    void fromPlayerInputValidateTest(String playerInput) throws Exception {
+
+        //given //when //then
+        assertThatThrownBy(() -> Balls.from(playerInput)).isInstanceOf(IllegalArgumentException.class);
+    }
+
     private int isStrike(BallCount ballCount) {
         if (ballCount == BallCount.STRIKE) {
             return 1;

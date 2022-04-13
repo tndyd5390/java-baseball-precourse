@@ -53,6 +53,41 @@ public class Balls {
         }
     }
 
+    public static Balls from(String playerInput) {
+        checkNumber(playerInput);
+        checkEmpty(playerInput);
+        checkInputLength(playerInput);
+        return Balls.from(createBallArray(playerInput));
+    }
+
+    private static void checkNumber(String playerInput) {
+        if (!playerInput.matches("[1-9]+")) {
+            throw new IllegalArgumentException("input must be numberic");
+        }
+    }
+
+    private static void checkEmpty(String playerInput) {
+        if (playerInput.isEmpty()) {
+            throw new IllegalArgumentException("input could not be empty");
+        }
+    }
+
+    private static void checkInputLength(String playerInput) {
+        if (playerInput.length() != BAll_SIZE) {
+            throw new IllegalArgumentException("input length must be 3");
+        }
+    }
+
+    private static Ball[] createBallArray(String playerInput) {
+        Ball[] balls = new Ball[BAll_SIZE];
+        int i = 0;
+        for (char number : playerInput.toCharArray()) {
+            balls[i] = Ball.of(Character.getNumericValue(number), i);
+            i++;
+        }
+        return balls;
+    }
+
     public static Balls getRandomlyGeneratedBallsInstance() {
         Ball[] balls = new Ball[BAll_SIZE];
         Set<Integer> randomNumberSet = createRandomNumberSet();
