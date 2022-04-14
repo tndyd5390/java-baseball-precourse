@@ -1,5 +1,6 @@
 package baseball.model;
 
+import baseball.code.ErrorCode;
 import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -29,7 +30,7 @@ public class Balls {
 
     private static void checkBallSize(Ball[] balls) {
         if (balls.length != BAll_SIZE) {
-            throw new IllegalArgumentException("out of ball size");
+            throw new IllegalArgumentException(ErrorCode.BALLS_BALL_SIZE.getErrorMessage());
         }
     }
 
@@ -39,7 +40,7 @@ public class Balls {
             ballNumbers.add(ball.getNumber());
         }
         if (new HashSet<>(ballNumbers).size() != ballNumbers.size()) {
-            throw new IllegalArgumentException("is duplicated number");
+            throw new IllegalArgumentException(ErrorCode.BALLS_DUPLICATED_NUMBER.getErrorMessage());
         }
     }
 
@@ -49,7 +50,7 @@ public class Balls {
             ballIndexs.add(ball.getIndex());
         }
         if (new HashSet<>(ballIndexs).size() != ballIndexs.size()) {
-            throw new IllegalArgumentException("is duplicated index");
+            throw new IllegalArgumentException(ErrorCode.BALLS_DUPLICATED_INDEX.getErrorMessage());
         }
     }
 
@@ -62,19 +63,19 @@ public class Balls {
 
     private static void checkNumber(String playerInput) {
         if (!playerInput.matches("[1-9]+")) {
-            throw new IllegalArgumentException("input must be numberic");
+            throw new IllegalArgumentException(ErrorCode.BALLS_NUMBERIC.getErrorMessage());
         }
     }
 
     private static void checkEmpty(String playerInput) {
         if (playerInput.isEmpty()) {
-            throw new IllegalArgumentException("input could not be empty");
+            throw new IllegalArgumentException(ErrorCode.BALLS_EMPTY.getErrorMessage());
         }
     }
 
     private static void checkInputLength(String playerInput) {
         if (playerInput.length() != BAll_SIZE) {
-            throw new IllegalArgumentException("input length must be 3");
+            throw new IllegalArgumentException(ErrorCode.BALLS_BALL_SIZE.getErrorMessage());
         }
     }
 
@@ -124,5 +125,4 @@ public class Balls {
             ballCounts.add(source.compareBall(target));
         }
     }
-
 }

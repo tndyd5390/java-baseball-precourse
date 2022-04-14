@@ -15,7 +15,7 @@ public enum GameStatus {
 
     public static String validGameStatus(String gameStatus) {
         if (!(gameStatus.equals(GAME_RESTART.gameStatus) || gameStatus.equals(GAME_EXIT.gameStatus))) {
-            throw new IllegalArgumentException("invalid input");
+            throw new IllegalArgumentException(ErrorCode.GAMESTATUS_INVALID_INPUT.getErrorMessage());
         }
         return gameStatus;
     }
