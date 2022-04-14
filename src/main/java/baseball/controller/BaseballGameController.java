@@ -1,5 +1,6 @@
 package baseball.controller;
 
+import baseball.code.GameStatus;
 import baseball.model.BallCountMap;
 import baseball.model.Balls;
 import baseball.model.GameResult;
@@ -9,13 +10,11 @@ import baseball.view.PlayerOutputView;
 public class BaseballGameController {
 
     public void playBaseBall() {
-        String continueOrEnd;
         do {
             Balls computerBalls = Balls.getRandomlyGeneratedBallsInstance();
             playBaseBallRound(computerBalls);
             PlayerOutputView.printPlayerWin();
-            continueOrEnd = PlayerInputView.inputGameRestartOrExit();
-        } while (continueOrEnd.equals("1"));
+        } while (GameStatus.isGameRestart(validPlayerInput()));
     }
 
     private void playBaseBallRound(Balls computerBalls) {
@@ -31,5 +30,9 @@ public class BaseballGameController {
     private Balls createPlayerBalls() {
         String playerInput = PlayerInputView.inputNumbers();
         return Balls.from(playerInput);
+    }
+
+    private String validPlayerInput() {
+        return GameStatus.validGameStatus(PlayerInputView.inputGameRestartOrExit());
     }
 }
