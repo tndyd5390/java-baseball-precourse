@@ -1,13 +1,9 @@
 package baseball.model;
 
+import baseball.code.BallCode;
 import baseball.code.ErrorCode;
 
 public class Ball {
-    private static final int MAX_NUMBER_RANGE = 9;
-    private static final int MIN_NUMBER_RANGE = 1;
-
-    private static final int MIN_INDEX_RANGE = 0;
-    private static final int MAX_INDEX_RANGE = 2;
 
     private int number;
     private int index;
@@ -36,13 +32,13 @@ public class Ball {
     }
 
     private static void isBetweenNumberRange(int number) {
-        if (number > MAX_NUMBER_RANGE || number < MIN_NUMBER_RANGE) {
+        if (number > BallCode.MAX_NUMBER_RANGE.getBallCode() || number < BallCode.MIN_NUMBER_RANGE.getBallCode()) {
             throw new IllegalArgumentException(ErrorCode.BALL_OUT_OF_NUMBER_RANGE.getErrorMessage());
         }
     }
 
     private static void isBetweenIndexRange(int index) {
-        if (index > MAX_INDEX_RANGE || index < MIN_INDEX_RANGE) {
+        if (index > BallCode.MAX_INDEX_RANGE.getBallCode() || index < BallCode.MIN_INDEX_RANGE.getBallCode()) {
             throw new IllegalArgumentException(ErrorCode.BALL_OUT_OF_INDEX_RANGE.getErrorMessage());
         }
     }
