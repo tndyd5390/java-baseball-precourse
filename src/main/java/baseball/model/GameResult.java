@@ -1,11 +1,11 @@
 package baseball.model;
 
 public class GameResult {
-    private String SPACE = " ";
-    private String EMPTY = "";
-    private String NOTHING = "낫싱";
-    private int ZERO = 0;
-    private int THREE = 3;
+    private static final String SPACE = " ";
+    private static final String EMPTY = "";
+    private static final String NOTHING = "낫싱";
+    private static final int ZERO = 0;
+    private static final int THREE = 3;
 
     private int strike;
     private int ball;
