@@ -5,7 +5,7 @@ public enum BallCount {
     BALL("볼"),
     NOTHING("낫싱");
 
-    private String ballCount;
+    private final String ballCount;
 
     BallCount(String ballCount) {
         this.ballCount = ballCount;

@@ -11,8 +11,8 @@ public enum ErrorCode {
     BALLS_INPUT_LENGTH("BALL006", "invalid input length"),
     GAMESTATUS_INVALID_INPUT("GAMESTATUS001", "invalid input");
 
-    private String errorCode;
-    private String errorMessage;
+    private final String errorCode;
+    private final String errorMessage;
 
     ErrorCode(String errorCode, String errorMessage) {
         this.errorCode = errorCode;

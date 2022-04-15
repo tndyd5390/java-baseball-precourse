@@ -6,7 +6,7 @@ public enum BallCode {
     MIN_INDEX_RANGE(0),
     MAX_INDEX_RANGE(2);
 
-    private int ballCode;
+    private final int ballCode;
 
     BallCode(int ballCode) {
         this.ballCode = ballCode;

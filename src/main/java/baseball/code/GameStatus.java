@@ -3,7 +3,7 @@ package baseball.code;
 public enum GameStatus {
     GAME_RESTART("1"), GAME_EXIT("2");
 
-    private String gameStatus;
+    private final String gameStatus;
 
     GameStatus(String gameStatus) {
         this.gameStatus = gameStatus;
