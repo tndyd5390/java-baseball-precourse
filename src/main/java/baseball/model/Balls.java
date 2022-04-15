@@ -45,11 +45,11 @@ public class Balls {
     }
 
     private static void checkDuplicateBallIndex(Ball[] balls) {
-        List<Integer> ballIndexs = new ArrayList<>();
+        List<Integer> ballIndexes = new ArrayList<>();
         for (Ball ball : balls) {
-            ballIndexs.add(ball.getIndex());
+            ballIndexes.add(ball.getIndex());
         }
-        if (new HashSet<>(ballIndexs).size() != ballIndexs.size()) {
+        if (new HashSet<>(ballIndexes).size() != ballIndexes.size()) {
             throw new IllegalArgumentException(ErrorCode.BALLS_DUPLICATED_INDEX.getErrorMessage());
         }
     }
@@ -58,7 +58,7 @@ public class Balls {
         checkNumber(playerInput);
         checkEmpty(playerInput);
         checkInputLength(playerInput);
-        return Balls.from(createBallArray(playerInput));
+        return from(createBallArray(playerInput));
     }
 
     private static void checkNumber(String playerInput) {
@@ -97,7 +97,7 @@ public class Balls {
             balls[index] = Ball.of(randomNumber, index);
             index++;
         }
-        return Balls.from(balls);
+        return from(balls);
     }
 
     private static Set<Integer> createRandomNumberSet() {
