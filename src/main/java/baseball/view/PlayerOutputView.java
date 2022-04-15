@@ -1,6 +1,11 @@
 package baseball.view;
 
-public class PlayerOutputView {
+public final class PlayerOutputView {
+
+    private PlayerOutputView() {
+        
+    }
+
     public static void printGameResult(String result) {
         System.out.println(result);
     }
